@@ -1,0 +1,14 @@
+name: Slack Notifier
+
+on:
+  deployment_status
+
+jobs:
+  notify_slack:
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack
+        run: |
+          curl -X POST --data '{"text": ":rocket:*Production Deploy Complete*:rocket:\nref:${{ github.event.deployment_status.deployment.ref }}\nhttps://github.com/SignalOpsIO/sass-dash-prod/actions"}' ${{ secrets.WEBHOOK }}
+  
