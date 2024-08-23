@@ -10,5 +10,5 @@ jobs:
     steps:
       - name: Notify Slack
         run: |
-          curl -X POST --data '{"text": ":rocket:*Production Deploy Complete*:rocket:\nhttps://github.com/SignalOpsIO/sass-dash-prod/actions/workflows/pages/pages-build-deployment"}' ${{ secrets.WEBHOOK }}
+          curl -X POST --data '{"text": "\n:rocket:*Production Deploy Complete*:rocket:\nhttps://github.com/SignalOpsIO/sass-dash-prod/actions/workflows/pages/pages-build-deployment\n"}' ${{ secrets.WEBHOOK }}
   
